@@ -1,35 +1,105 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Assignment
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# E-Commerce API
 
-## Description
+## Project Overview
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a backend API for an E-commerce platform built using **NestJS** and **PostgreSQL**. The API provides functionality to manage products, categories, and orders.
+
+## Features
+
+- **Product Management**: Create, read with search & pagination, update, and delete products.
+- **Category Management**: Create, read with search & pagination, update, and delete product categories.
+- **Order Management**: Create orders with products & stock update, calculate total price, and update order status, read with pagination
+
+## Technology Stack
+
+- **NestJS**: Framework for building scalable APIs.
+- **PostgreSQL**: Relational database for storing product, category, and order data.
+- **TypeORM**: ORM for managing PostgreSQL interactions.
+- **class-validator** & **class-transformer**: Validation and transformation of incoming request data.
+- **Docker**: Containerization for easy deployment.
+
+## Requirements
+
+- Node.js (>= 16.x)
+- PostgreSQL (locally or using Docker)
+- Docker (optional for containerization)
+
+## Database Design
+
+The database consists of three main tables:
+
+1. **Products**:
+   - `id` (UUID): Unique identifier
+   - `name` (String): Product name
+   - `description` (String): Product description
+   - `price` (Decimal): Product price
+   - `stockQuantity` (Integer): Available stock quantity
+   - `categoryId` (Foreign Key): Reference to the product category
+
+2. **Categories**:
+   - `id` (UUID): Unique identifier
+   - `name` (String): Category name
+   - `description` (String): Category description
+
+3. **Orders**:
+   - `id` (UUID): Unique identifier
+   - `customerName` (String): Name of the customer
+   - `customerEmail` (String): Email of the customer
+   - `products` (Array): Product IDs and quantities ordered
+   - `totalPrice` (Decimal): Total order price (calculated dynamically)
+   - `status` (String): Order status (Pending, Shipped, Delivered)
+   - `createdAt` (Timestamp): Date and time of order creation
+   - `updatedAt` (Timestamp): Date and time of order update
+
+## Setup
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/ShahrearKabir/e-commerce-assignment.git
+cd e-commerce-assignment
+
+
+
 
 ## Installation
 
+Clone repository
 ```bash
+https://github.com/ShahrearKabir/questionpro-assignment.git
+```
+Install with npm
+
+```bash
+# go to project dir
+
+$ cp .env.example .env
 $ npm install
+
+# set all .env variables
+```
+Setup application .env file
+```bash
+NAME=e-commerce
+RUN_TIME=local
+PORT=****
+
+POSTGRES_DB_HOST=localhost
+POSTGRES_DB_NAME=e_commerce_assignment_db
+POSTGRES_DB_USER=********
+POSTGRES_DB_PASSWORD=******
+POSTGRES_DB_PORT=5432
+
+
+```
+
+## Database backup
+restore db from *.sql 
+```bash
+backups/e-commerce-db-backup.sql
 ```
 
 ## Running the app
@@ -41,33 +111,22 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
+# debugger mode
+$ npm run start:debug
+
 # production mode
 $ npm run start:prod
 ```
+    
+## API Reference
 
-## Test
+#### Postman API documentation url
 
-```bash
-# unit tests
-$ npm run test
+```https
+  https://lively-desert-552765.postman.co/workspace/My-Workspace~0bc29b2d-d286-453e-896f-14302d6241ad/collection/8038379-028c32a5-ecd7-4be6-b122-11a478d3c58f?action=share&creator=8038379
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+Postman Collections in project backup:
+backups/e-commerce-assignment.postman_collection.json
 ```
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).

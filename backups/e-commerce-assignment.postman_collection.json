@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "028c32a5-ecd7-4be6-b122-11a478d3c58f",
+		"name": "e-commerce-assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "8038379",
+		"_collection_link": "https://lively-desert-552765.postman.co/workspace/My-Workspace~0bc29b2d-d286-453e-896f-14302d6241ad/collection/8038379-028c32a5-ecd7-4be6-b122-11a478d3c58f?action=share&source=collection_link&creator=8038379"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "{{e-commerce_assignment_base_url}}/categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{e-commerce_assignment_base_url}}/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"category three\",\n    \"description\": \"category three desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{e-commerce_assignment_base_url}}/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/categories/191ac333-c61f-41c4-ba40-41c81531b1b8",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{e-commerce_assignment_base_url}}/categories/18e79dc2-cb19-4202-900b-7606ee7601f3"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/categories/191ac333-c61f-41c4-ba40-41c81531b1b8",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{e-commerce_assignment_base_url}}/categories/191ac333-c61f-41c4-ba40-41c81531b1b8"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/categories/4d0c7f10-388c-4b63-ae32-aa0051b106ab",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"category twooo\",\n    \"description\": \"category twoo desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{e-commerce_assignment_base_url}}/categories/4d0c7f10-388c-4b63-ae32-aa0051b106ab"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{e-commerce_assignment_base_url}}/products?page=1&limit=10",
+							"host": [
+								"{{e-commerce_assignment_base_url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "one",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "all",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"product 5\",\n    \"description\": \"product 5 desc\",\n    \"price\": -555,\n    \"stockQuantity\": 55,\n    \"category\": \"4d0c7f10-388c-4b63-ae32-aa0051b106ab\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{e-commerce_assignment_base_url}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products/35ff4970-1bd4-401b-b73e-9cfa30ff8663",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{e-commerce_assignment_base_url}}/products/35ff4970-1bd4-401b-b73e-9cfa30ff8663"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products/35ff4970-1bd4-401b-b73e-9cfa30ff8663",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"name\": \"product oneee\",\n    // \"description\": \"product oneee desc\",\n    // \"price\": 112,\n    // \"stockQuantity\": 12,\n    \"category\": \"4d0c7f10-388c-4b63-ae32-aa0051b106ab\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{e-commerce_assignment_base_url}}/products/3b0be38e-ffc0-40bf-8303-59f27d616ae5"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products/aa2ffba0-616a-4032-8b8a-7e9f43221acf",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{e-commerce_assignment_base_url}}/products/a4f11f5a-f84f-4bc6-b8d0-41845e35c4d7"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products?page=1&limit=10",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{e-commerce_assignment_base_url}}/orders?page=1&limit=10",
+							"host": [
+								"{{e-commerce_assignment_base_url}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Shahrear\",\n    \"customerEmail\": \"a@gmail.com\",\n    \"products\": [\n        {\n            \"productId\": \"f24e280a-4310-4501-a394-7081c97a9943\",\n            \"quantity\": 1\n        },\n        {\n            \"productId\": \"35ff4970-1bd4-401b-b73e-9cfa30ff8663\",\n            \"quantity\": 2\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{e-commerce_assignment_base_url}}/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/orders/d4abce4c-b484-434c-ab4c-6480d8ec6826",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{e-commerce_assignment_base_url}}/orders/d4abce4c-b484-434c-ab4c-6480d8ec6826"
+					},
+					"response": []
+				},
+				{
+					"name": "{{e-commerce_assignment_base_url}}/orders/d4abce4c-b484-434c-ab4c-6480d8ec6826",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"Delivered\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{e-commerce_assignment_base_url}}/orders/d4abce4c-b484-434c-ab4c-6480d8ec6826"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "e-commerce_assignment_base_url",
+			"value": "http://localhost:4300"
+		}
+	]
+}
